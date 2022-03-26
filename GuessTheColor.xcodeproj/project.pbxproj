@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3663703276D8C4400E3EC84 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */; };
 		B3E408C62740DC6E0048CD09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C52740DC6E0048CD09 /* AppDelegate.swift */; };
 		B3E408C82740DC6E0048CD09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */; };
 		B3E408CA2740DC6E0048CD09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C92740DC6E0048CD09 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		B3E408C22740DC6E0048CD09 /* GuessTheColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E408C52740DC6E0048CD09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3663704276D8C4D00E3EC84 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */,
+				B3E408C92740DC6E0048CD09 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B3E408B92740DC6E0048CD09 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +69,7 @@
 			children = (
 				B3E408C52740DC6E0048CD09 /* AppDelegate.swift */,
 				B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */,
-				B3E408C92740DC6E0048CD09 /* ViewController.swift */,
+				B3663704276D8C4D00E3EC84 /* Controllers */,
 				B3E408CB2740DC6E0048CD09 /* Main.storyboard */,
 				B3E408CE2740DC700048CD09 /* Assets.xcassets */,
 				B3E408D02740DC700048CD09 /* LaunchScreen.storyboard */,
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3663703276D8C4400E3EC84 /* IntroductionViewController.swift in Sources */,
 				B3E408CA2740DC6E0048CD09 /* ViewController.swift in Sources */,
 				B3E408C62740DC6E0048CD09 /* AppDelegate.swift in Sources */,
 				B3E408C82740DC6E0048CD09 /* SceneDelegate.swift in Sources */,
@@ -287,14 +299,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A43MNB4Y8U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GuessTheColor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hue Match";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,7 +317,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theonlygnome.GuessTheColor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theonlygnome.HueMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -315,14 +330,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A43MNB4Y8U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GuessTheColor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hue Match";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -330,7 +348,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theonlygnome.GuessTheColor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theonlygnome.HueMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
