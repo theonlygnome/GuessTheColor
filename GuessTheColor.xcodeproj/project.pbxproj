@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B3663703276D8C4400E3EC84 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */; };
+		B37ED1032A7AB5E100249B8A /* calm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B37ED1022A7AB5E100249B8A /* calm.mp3 */; };
+		B37ED1052A7AC23E00249B8A /* water.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B37ED1042A7AC23E00249B8A /* water.jpg */; };
+		B37ED1072A7AC3B100249B8A /* water-2jpg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B37ED1062A7AC3B100249B8A /* water-2jpg.jpg */; };
 		B3E408C62740DC6E0048CD09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C52740DC6E0048CD09 /* AppDelegate.swift */; };
 		B3E408C82740DC6E0048CD09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */; };
 		B3E408CA2740DC6E0048CD09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E408C92740DC6E0048CD09 /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		B37ED1022A7AB5E100249B8A /* calm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm.mp3; sourceTree = "<group>"; };
+		B37ED1042A7AC23E00249B8A /* water.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water.jpg; sourceTree = "<group>"; };
+		B37ED1062A7AC3B100249B8A /* water-2jpg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "water-2jpg.jpg"; sourceTree = "<group>"; };
 		B3E408C22740DC6E0048CD09 /* GuessTheColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E408C52740DC6E0048CD09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 		B3E408C42740DC6E0048CD09 /* GuessTheColor */ = {
 			isa = PBXGroup;
 			children = (
+				B37ED1022A7AB5E100249B8A /* calm.mp3 */,
+				B37ED1042A7AC23E00249B8A /* water.jpg */,
+				B37ED1062A7AC3B100249B8A /* water-2jpg.jpg */,
 				B3E408C52740DC6E0048CD09 /* AppDelegate.swift */,
 				B3E408C72740DC6E0048CD09 /* SceneDelegate.swift */,
 				B3663704276D8C4D00E3EC84 /* Controllers */,
@@ -139,6 +148,9 @@
 				B3E408D22740DC700048CD09 /* LaunchScreen.storyboard in Resources */,
 				B3E408CF2740DC700048CD09 /* Assets.xcassets in Resources */,
 				B3E408CD2740DC6E0048CD09 /* Main.storyboard in Resources */,
+				B37ED1032A7AB5E100249B8A /* calm.mp3 in Resources */,
+				B37ED1072A7AC3B100249B8A /* water-2jpg.jpg in Resources */,
+				B37ED1052A7AC23E00249B8A /* water.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

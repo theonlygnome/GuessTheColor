@@ -5,6 +5,7 @@
 //  Created by Naomi Anderson on 11/14/21.
 //
 
+import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
@@ -22,6 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var allColorStackView: UIStackView!
     @IBOutlet weak var guessColorStackView: UIStackView!
         
+    @IBOutlet weak var playPause: UIBarButtonItem!
+    
+    @IBOutlet weak var imageBackground: UIImageView!
+    
+    
     // not set as optional because this will always be set to an array of the four option buttons
     var buttonOptionArr : [UIButton] = []
      
@@ -32,14 +38,16 @@ class ViewController: UIViewController {
     var streak = 0
     var highStreak = 0
     
+    var player: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         buttonOptionArr = [option1, option2, option3, option4]
         //scoreLabel.text = "\(totalCorrect) Correct /  \(totalTurns) Total"
         
-        scoreLabel.text = "Streak: \(streak)"
-        longestStreak.text = "Longest Streak: \(highStreak)"
+        scoreLabel.text = "Score: \(streak)"
+        longestStreak.text = "Streak: \(highStreak)"
         changeColor()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -49,7 +57,19 @@ class ViewController: UIViewController {
             allColorStackView.axis = .vertical
             guessColorStackView.axis = .horizontal
         }
+        
+        playPause.image = UIImage(systemName: "play.circle")
+        
+        scoreLabel.font = UIFont(name: "GillSans", size: 20)
+        longestStreak.font = UIFont(name: "GillSans", size: 20)
+        swatch.layer.cornerRadius = 10.0
+        option1.layer.cornerRadius = 10.0
+        option2.layer.cornerRadius = 10.0
+        option3.layer.cornerRadius = 10.0
+        option4.layer.cornerRadius = 10.0
+        imageBackground.alpha = 0.2
     }
+    
 
     deinit {
        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -111,8 +131,8 @@ class ViewController: UIViewController {
         totalTurns += 1
         
         //scoreLabel.text = "Score: \(totalCorrect) / \(totalTurns)"
-        scoreLabel.text = "Streak: \(streak)"
-        longestStreak.text = "Longest Streak: \(highStreak)"
+        scoreLabel.text = "Score: \(streak)"
+        longestStreak.text = "Streak: \(highStreak)"
     }
     
     
@@ -123,11 +143,40 @@ class ViewController: UIViewController {
         
         
         //scoreLabel.text = "Score: \(totalCorrect) / \(totalTurns)"
-        scoreLabel.text = "Streak: \(streak)"
-        longestStreak.text = "Longest Streak: \(highStreak)"
+        scoreLabel.text = "Score: \(streak)"
+        longestStreak.text = "Streak: \(highStreak)"
         changeColor()
         
        }
     
+    @IBAction func playPauseTapped(_ sender: UIBarButtonItem) {
+        if let player = player, player.isPlaying {
+            player.stop()
+            playPause.image = UIImage(systemName: "play.circle")
+        } else {
+            playPause.image = UIImage(systemName: "pause.circle")
+            
+            let urlString = Bundle.main.path(forResource: "calm", ofType: ".mp3")
+            do {
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                player?.numberOfLoops = 100
+                guard let player = player else {
+                    return
+                }
+                
+                player.play()
+            } catch {
+                print("Error starting music")
+            }
+            
+        }
+    }
 }
 
