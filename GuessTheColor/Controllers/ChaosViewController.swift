@@ -1,34 +1,28 @@
 //
-//  ViewController.swift
+//  ChaosViewController.swift
 //  GuessTheColor
 //
-//  Created by Naomi Anderson on 11/14/21.
+//  Created by Naomi Anderson on 8/8/23.
 //
 
-import AVFoundation
 import UIKit
 
-class ViewController: UIViewController {
+class ChaosViewController: UIViewController {
 
-    @IBOutlet weak var option1: UIButton!
-    @IBOutlet weak var option2: UIButton!
-    @IBOutlet weak var option3: UIButton!
-    @IBOutlet weak var option4: UIButton!
+    @IBOutlet weak var highStreak: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var score: UILabel!
     
     @IBOutlet weak var swatch: UIButton!
     
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var longestStreak: UILabel!
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
     
     @IBOutlet weak var allColorStackView: UIStackView!
     @IBOutlet weak var guessColorStackView: UIStackView!
-        
-    @IBOutlet weak var playPause: UIBarButtonItem!
     
-    @IBOutlet weak var imageBackground: UIImageView!
-    
-    
-    // not set as optional because this will always be set to an array of the four option buttons
     var buttonOptionArr : [UIButton] = []
      
     var correctSelection = 0
@@ -36,22 +30,23 @@ class ViewController: UIViewController {
     var totalTurns = 0
     var totalCorrect = 0
     var streak = 0
-    var highStreak = 0
+    var topStreak = 0
     
-    var player: AVAudioPlayer?
+    var counter = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         let defaults = UserDefaults.standard
-        highStreak = defaults.integer(forKey: "streak")
+        topStreak = defaults.integer(forKey: "chaosStreak")
         
-        buttonOptionArr = [option1, option2, option3, option4]
+        buttonOptionArr = [button1, button2, button3, button4]
         //scoreLabel.text = "\(totalCorrect) Correct /  \(totalTurns) Total"
         
-        scoreLabel.text = "Score: \(streak)"
-        longestStreak.text = "Streak: \(highStreak)"
+        score.text = "Score: \(streak)"
+        highStreak.text = "Streak: \(topStreak)"
         changeColor()
+        setupButtons()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
@@ -61,31 +56,16 @@ class ViewController: UIViewController {
             guessColorStackView.axis = .horizontal
         }
         
-        playPause.image = UIImage(systemName: "play.circle")
-        
-        scoreLabel.font = UIFont(name: "GillSans", size: 20)
-        longestStreak.font = UIFont(name: "GillSans", size: 20)
-        swatch.setTitle("", for: .normal)
-        option1.setTitle("", for: .normal)
-        option2.setTitle("", for: .normal)
-        option3.setTitle("", for: .normal)
-        option4.setTitle("", for: .normal)
-        swatch.layer.cornerRadius = 10.0
-        option1.layer.cornerRadius = 10.0
-        option1.setTitle("", for: .normal)
-        option2.layer.cornerRadius = 10.0
-        option3.layer.cornerRadius = 10.0
-        option4.layer.cornerRadius = 10.0
-        imageBackground.alpha = 0.2
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         print("Writing out user defaults")
         let defaults = UserDefaults.standard
-        if highStreak == 0 {
-            defaults.set(totalCorrect, forKey: "streak")
+        if topStreak == 0 {
+            defaults.set(totalCorrect, forKey: "chaosStreak")
         } else {
-            defaults.set(highStreak, forKey: "streak")
+            defaults.set(topStreak, forKey: "chaosStreak")
         }
     }
 
@@ -103,7 +83,38 @@ class ViewController: UIViewController {
         }
     }
     
-  
+    @objc func update() {
+        if(counter > 0) {
+            counter -= 1
+            timerLabel.text = String(counter)
+        } else {
+            // if score is higher than streak, update streak
+            if (streak > topStreak) {
+                    topStreak = streak
+            }
+            streak = 0
+            totalCorrect = 0
+            score.text = "Score: \(streak)"
+            highStreak.text = "Streak: \(topStreak)"
+        }
+        
+    }
+    
+    private func setupButtons() {
+        
+        score.font = UIFont(name: "GillSans", size: 20)
+        highStreak.font = UIFont(name: "GillSans", size: 20)
+        swatch.setTitle("", for: .normal)
+        button1.setTitle("", for: .normal)
+        button2.setTitle("", for: .normal)
+        button3.setTitle("", for: .normal)
+        button4.setTitle("", for: .normal)
+        swatch.layer.cornerRadius = 10.0
+        button1.layer.cornerRadius = 10.0
+        button2.layer.cornerRadius = 10.0
+        button3.layer.cornerRadius = 10.0
+        button4.layer.cornerRadius = 10.0
+    }
     
     func changeColor() {
         let r = Int.random(in: 0...255)
@@ -144,68 +155,29 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func guessSelected(_ sender: UIButton) {
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    @IBAction func guessTapped(_ sender: UIButton) {
         let selection = sender.tag
         if (selection == correctSelection) {
             totalCorrect += 1
             streak += 1
             changeColor()
-        } else {
-            if (streak > highStreak) {
-                highStreak = streak
-            }
-            streak = 0
         }
         
         totalTurns += 1
         
         //scoreLabel.text = "Score: \(totalCorrect) / \(totalTurns)"
-        scoreLabel.text = "Score: \(streak)"
-        longestStreak.text = "Streak: \(highStreak)"
+        score.text = "Score: \(streak)"
+        highStreak.text = "Streak: \(topStreak)"
     }
     
-    
-    @IBAction func resetGame(_ sender: UIButton) {
-        totalCorrect = 0
-        totalTurns = 0
-        streak = 0
-        
-        
-        //scoreLabel.text = "Score: \(totalCorrect) / \(totalTurns)"
-        scoreLabel.text = "Score: \(streak)"
-        longestStreak.text = "Streak: \(highStreak)"
-        changeColor()
-        
-       }
-    
-    @IBAction func playPauseTapped(_ sender: UIBarButtonItem) {
-        if let player = player, player.isPlaying {
-            player.stop()
-            playPause.image = UIImage(systemName: "play.circle")
-        } else {
-            playPause.image = UIImage(systemName: "pause.circle")
-            
-            let urlString = Bundle.main.path(forResource: "calm", ofType: ".mp3")
-            do {
-                try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let urlString = urlString else {
-                    return
-                }
-                
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-                player?.numberOfLoops = 100
-                guard let player = player else {
-                    return
-                }
-                
-                player.play()
-            } catch {
-                print("Error starting music")
-            }
-            
-        }
-    }
 }
-
