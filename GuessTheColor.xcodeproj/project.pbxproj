@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31E59EA2A8967AB00865010 /* light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B31E59E92A8967AA00865010 /* light.jpg */; };
 		B36284422A83113A0019CB3A /* ChaosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36284412A83113A0019CB3A /* ChaosViewController.swift */; };
 		B3663703276D8C4400E3EC84 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */; };
 		B37ED1032A7AB5E100249B8A /* calm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B37ED1022A7AB5E100249B8A /* calm.mp3 */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B31E59E92A8967AA00865010 /* light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = light.jpg; sourceTree = "<group>"; };
 		B36284412A83113A0019CB3A /* ChaosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaosViewController.swift; sourceTree = "<group>"; };
 		B3663702276D8C4400E3EC84 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		B37ED1022A7AB5E100249B8A /* calm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = calm.mp3; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		B3E408C42740DC6E0048CD09 /* GuessTheColor */ = {
 			isa = PBXGroup;
 			children = (
+				B31E59E92A8967AA00865010 /* light.jpg */,
 				B37ED1022A7AB5E100249B8A /* calm.mp3 */,
 				B37ED1042A7AC23E00249B8A /* water.jpg */,
 				B37ED1062A7AC3B100249B8A /* water-2jpg.jpg */,
@@ -153,6 +156,7 @@
 				B3E408CD2740DC6E0048CD09 /* Main.storyboard in Resources */,
 				B37ED1032A7AB5E100249B8A /* calm.mp3 in Resources */,
 				B37ED1072A7AC3B100249B8A /* water-2jpg.jpg in Resources */,
+				B31E59EA2A8967AB00865010 /* light.jpg in Resources */,
 				B37ED1052A7AC23E00249B8A /* water.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

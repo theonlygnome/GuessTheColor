@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22146" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QMf-1n-4Wm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QMf-1n-4Wm">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -229,6 +229,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4sD-cA-aFK">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZTt-g6-2nA">
                                 <rect key="frame" x="40" y="160" width="310" height="630"/>
                                 <subviews>
@@ -320,8 +323,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-xN-8qb">
-                                <rect key="frame" x="159.66666666666666" y="91" width="71" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-xN-8qb">
+                                <rect key="frame" x="176.66666666666666" y="91" width="37" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,17 +336,28 @@
                             <constraint firstItem="f6F-9Y-eUg" firstAttribute="leading" secondItem="VEb-Tg-Bz5" secondAttribute="leading" constant="40" id="1bF-LQ-Esf"/>
                             <constraint firstItem="6hC-Ul-qJE" firstAttribute="baseline" secondItem="f6F-9Y-eUg" secondAttribute="baseline" id="6br-Ah-LKi"/>
                             <constraint firstItem="6gF-xN-8qb" firstAttribute="centerX" secondItem="y6b-wc-64J" secondAttribute="centerX" id="BTm-ZF-VhO"/>
+                            <constraint firstAttribute="bottom" secondItem="4sD-cA-aFK" secondAttribute="bottom" id="G4S-sK-WvU"/>
+                            <constraint firstAttribute="trailing" secondItem="4sD-cA-aFK" secondAttribute="trailing" id="Hx0-dC-GUn"/>
                             <constraint firstItem="VEb-Tg-Bz5" firstAttribute="bottom" secondItem="ZTt-g6-2nA" secondAttribute="bottom" constant="20" id="NMO-OE-CpO"/>
                             <constraint firstItem="6hC-Ul-qJE" firstAttribute="top" secondItem="6gF-xN-8qb" secondAttribute="top" id="QKf-Jh-kVw"/>
                             <constraint firstItem="6hC-Ul-qJE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6gF-xN-8qb" secondAttribute="trailing" id="WKS-Wd-55u"/>
+                            <constraint firstItem="4sD-cA-aFK" firstAttribute="top" secondItem="y6b-wc-64J" secondAttribute="top" id="WfH-9q-7Qm"/>
                             <constraint firstItem="6gF-xN-8qb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f6F-9Y-eUg" secondAttribute="trailing" id="Ymy-aU-RiR"/>
                             <constraint firstItem="ZTt-g6-2nA" firstAttribute="leading" secondItem="VEb-Tg-Bz5" secondAttribute="leading" constant="40" id="cHM-lA-qb0"/>
+                            <constraint firstItem="4sD-cA-aFK" firstAttribute="leading" secondItem="VEb-Tg-Bz5" secondAttribute="leading" id="guJ-Ya-U99"/>
                             <constraint firstItem="VEb-Tg-Bz5" firstAttribute="trailing" secondItem="ZTt-g6-2nA" secondAttribute="trailing" constant="40" id="lg5-QX-6ZR"/>
                             <constraint firstItem="ZTt-g6-2nA" firstAttribute="top" secondItem="6gF-xN-8qb" secondAttribute="bottom" constant="33" id="ozY-5A-5Y7"/>
                             <constraint firstItem="VEb-Tg-Bz5" firstAttribute="trailing" secondItem="6hC-Ul-qJE" secondAttribute="trailing" constant="40" id="x3I-8R-WbX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EbN-at-Aar"/>
+                    <navigationItem key="navigationItem" id="EbN-at-Aar">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="oCZ-aP-AQJ">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <action selector="startTapped:" destination="PV3-cx-x7C" id="5MC-1d-IKG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="allColorStackView" destination="ZTt-g6-2nA" id="BKN-xk-Oos"/>
                         <outlet property="button1" destination="etq-I2-TbP" id="Klz-sM-bu6"/>
@@ -352,6 +366,7 @@
                         <outlet property="button4" destination="Ftp-Vy-59M" id="Flg-Lf-g4t"/>
                         <outlet property="guessColorStackView" destination="DN3-4U-ixM" id="WSN-jR-FAS"/>
                         <outlet property="highStreak" destination="6hC-Ul-qJE" id="omI-JG-iGJ"/>
+                        <outlet property="imageView" destination="4sD-cA-aFK" id="fO9-EN-Hnr"/>
                         <outlet property="score" destination="f6F-9Y-eUg" id="Ukf-1b-g52"/>
                         <outlet property="swatch" destination="jQ2-2b-Rdn" id="BGk-SF-sL1"/>
                         <outlet property="timerLabel" destination="6gF-xN-8qb" id="ROj-M2-8ZM"/>
@@ -359,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQ0-tO-yng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1027.6923076923076" y="341.94312796208527"/>
+            <point key="canvasLocation" x="1027.6923076923076" y="341.23222748815164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="36v-fY-Cgs">
@@ -382,15 +397,19 @@
     </scenes>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
+        <image name="light.jpg" width="1280" height="1280"/>
         <image name="water.jpg" width="368.6400146484375" height="491.51998901367188"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

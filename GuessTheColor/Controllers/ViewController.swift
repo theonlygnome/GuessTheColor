@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDragInteractionDelegate, UIDropInteractionDelegate {
 
     @IBOutlet weak var option1: UIButton!
     @IBOutlet weak var option2: UIButton!
@@ -72,11 +72,28 @@ class ViewController: UIViewController {
         option4.setTitle("", for: .normal)
         swatch.layer.cornerRadius = 10.0
         option1.layer.cornerRadius = 10.0
-        option1.setTitle("", for: .normal)
         option2.layer.cornerRadius = 10.0
         option3.layer.cornerRadius = 10.0
         option4.layer.cornerRadius = 10.0
         imageBackground.alpha = 0.2
+        
+        swatch.isUserInteractionEnabled = true
+        option1.isUserInteractionEnabled = true
+        option2.isUserInteractionEnabled = true
+        option3.isUserInteractionEnabled = true
+        option4.isUserInteractionEnabled = true
+        
+        let dragInteraction1 = UIDragInteraction(delegate: self)
+        swatch.addInteraction(dragInteraction1)
+        
+        let dropInteration1 = UIDropInteraction(delegate: self)
+        let dropInteration2 = UIDropInteraction(delegate: self)
+        let dropInteration3 = UIDropInteraction(delegate: self)
+        let dropInteration4 = UIDropInteraction(delegate: self)
+        option1.addInteraction(dropInteration1)
+        option2.addInteraction(dropInteration2)
+        option3.addInteraction(dropInteration3)
+        option4.addInteraction(dropInteration4)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -204,6 +221,50 @@ class ViewController: UIViewController {
             } catch {
                 print("Error starting music")
             }
+            
+        }
+    }
+    
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+        guard let button = interaction.view as? UIButton, let title = button.titleLabel?.text else {
+            return []
+        }
+        
+        let provider = NSItemProvider(object: title as NSString)
+        let dragItem = UIDragItem(itemProvider: provider)
+        dragItem.localObject = button
+        return [dragItem]
+        
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+        return session.canLoadObjects(ofClass: NSString.self)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        return UIDropProposal(operation: .move)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        session.loadObjects(ofClass: NSString.self) { _ in
+                if let destinationButton = interaction.view as? UIButton {
+                    print("Destination tag is \(destinationButton.tag)")
+                    if destinationButton.tag == self.correctSelection {
+                        self.totalCorrect += 1
+                        self.streak += 1
+                        self.changeColor()
+                    } else {
+                        if (self.streak > self.highStreak) {
+                            self.highStreak = self.streak
+                        }
+                        self.streak = 0
+                    }
+                    
+                    self.totalTurns += 1
+                    
+                    self.scoreLabel.text = "Score: \(self.streak)"
+                    self.longestStreak.text = "Streak: \(self.highStreak)"
+                }
             
         }
     }
